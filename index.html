@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <script type="text/javascript" src="hiho-tzc.js"></script>
+        <title>Test Hiho Timezone Converter</title>
+    </head>
+    <body>
+        <p>from 2017-01-02 17:05 (+0900) to <span class="htzc">2017-01-02 17:05 (+0900)</span></p>
+        <p>from 2017-01-02 17:05 (+0800) to <span class="htzc">2017-01-02 17:05 (+0800)</span></p>
+        <p>from 2017-01-02 17:05 (+0000 to <span class="htzc">2017-01-02 17:05 (+0000)</span></p>
+        <p>from 2017-01-02 17:05 (+0100) to <span class="htzc">2017-01-02 17:05 (+0100)</span></p>
+        <script type="text/javascript">
+            var x = new Date();
+            var offset_in_minutes = x.getTimezoneOffset();
+            var htzc = new HTZC(offset_in_minutes);
+            var times = document.getElementsByClassName('htzc');
+            for (var i = 0; i < times.length; i++) {
+                times[i].innerHTML = htzc.convert(times[i].innerHTML);
+            }
+        </script>
+    </body>
+</html>
